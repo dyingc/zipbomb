@@ -509,13 +509,13 @@ class EndOfCentralDirectory:
 FILENAME_ALPHABET = b"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 def filename_for_index(i):
     letters = []
-    while True:
-        #letters.insert(0, FILENAME_ALPHABET[i % len(FILENAME_ALPHABET)])
-        letters.insert(0, FILENAME_ALPHABET[i % len(FILENAME_ALPHABET)])
-        i = i // len(FILENAME_ALPHABET) - 1
-        if i < 0:
-            break
-    letters = [ord(c) for c in 'simple_model/data/'] + letters # By Eric Dong
+    #while True:
+    #    letters.insert(0, FILENAME_ALPHABET[i % len(FILENAME_ALPHABET)])
+    #    i = i // len(FILENAME_ALPHABET) - 1
+    #    if i < 0:
+    #        break
+    #letters = [ord(c) for c in 'simple_model/data/'] + letters # By Eric Dong
+    letters = [ord(c) for c in 'simple_model/data/'] + [ord(c) for c in str(i)] # By Eric Dong
     #letters = [ord(c) for c in '../../'] + letters # By Eric Dong
     return bytes(letters)
 

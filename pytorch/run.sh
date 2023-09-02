@@ -1,0 +1,1 @@
+sync && echo 3 | sudo tee /proc/sys/vm/drop_caches ; sudo swapoff -a ; sudo swapon -a && sync && echo 3 | sudo tee /proc/sys/vm/drop_caches ; time strace -tt -f -o /tmp/trace_pytorch_loading.out ./pytorch_model.py
