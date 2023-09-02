@@ -510,10 +510,13 @@ FILENAME_ALPHABET = b"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 def filename_for_index(i):
     letters = []
     while True:
+        #letters.insert(0, FILENAME_ALPHABET[i % len(FILENAME_ALPHABET)])
         letters.insert(0, FILENAME_ALPHABET[i % len(FILENAME_ALPHABET)])
         i = i // len(FILENAME_ALPHABET) - 1
         if i < 0:
             break
+    letters = [ord(c) for c in 'simple_model/data/'] + letters # By Eric Dong
+    #letters = [ord(c) for c in '../../'] + letters # By Eric Dong
     return bytes(letters)
 
 def write_zip_no_overlap(f, num_files, compressed_size=None, max_uncompressed_size=None, compression_method=COMPRESSION_METHOD_DEFLATE, zip64=False, template=[], **kwargs):
